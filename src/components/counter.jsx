@@ -8,10 +8,11 @@ class Counter extends Component {
   //     console.log("Counter was created", this);
   //   }
   state = {
-    count: 0,
+    count: this.props.value,
   };
 
   render() {
+    console.log("props:", this.props);
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
@@ -34,7 +35,6 @@ class Counter extends Component {
   }
 
   handleIncrement = (product) => {
-    console.log(product);
     this.setState({ count: this.state.count + 1 });
   };
 
