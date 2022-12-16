@@ -8,11 +8,10 @@ class Counter extends Component {
   //     console.log("Counter was created", this);
   //   }
   state = {
-    count: this.props.value,
+    value: this.props.value,
   };
 
   render() {
-    console.log("props:", this.props);
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
@@ -35,25 +34,25 @@ class Counter extends Component {
   }
 
   handleIncrement = (product) => {
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   handleDecrement = () => {
-    if (this.state.count > 0) {
-      this.setState({ count: this.state.count - 1 });
+    if (this.state.value > 0) {
+      this.setState({ count: this.state.value - 1 });
     }
   };
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
 
-    classes += this.state.count <= 0 ? "warning" : "primary";
+    classes += this.state.value <= 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    let { count } = this.state;
-    return count === 0 ? "zero" : count;
+    let { value } = this.state;
+    return value === 0 ? "zero" : value;
   }
 }
 export default Counter;
