@@ -25,24 +25,12 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <button
-          onClick={this.handleDecrement}
-          className="btn btn-secondary btn-sm"
-        >
-          Decrement
-        </button>
       </div>
     );
   }
 
   handleIncrement = (product) => {
     this.setState({ value: this.state.value + 1 });
-  };
-
-  handleDecrement = () => {
-    if (this.state.value > 0) {
-      this.setState({ value: this.state.value - 1 });
-    }
   };
 
   getBadgeClasses() {
