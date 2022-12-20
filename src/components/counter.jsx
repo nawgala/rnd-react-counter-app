@@ -12,7 +12,7 @@ class Counter extends Component {
   };
 
   render() {
-    console.log("props:", this.props);
+    // console.log("props:", this.props);
     return (
       <div>
         {this.props.children}
@@ -26,7 +26,9 @@ class Counter extends Component {
           Increment
         </button>
         <button
-          onClick={this.props.onDelete}
+          onClick={() => {
+            this.props.onDelete(this.state.id);
+          }}
           className="btn btn-danger btn-sm m-2"
         >
           Delete
