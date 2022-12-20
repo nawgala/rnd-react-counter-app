@@ -15,7 +15,6 @@ class Counter extends Component {
     // console.log("props:", this.props);
     return (
       <div>
-        {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => {
@@ -27,7 +26,7 @@ class Counter extends Component {
         </button>
         <button
           onClick={() => {
-            this.props.onDelete(this.state.id);
+            this.props.onDelete(this.props.id);
           }}
           className="btn btn-danger btn-sm m-2"
         >
