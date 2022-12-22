@@ -26,9 +26,14 @@ class Counters extends Component {
     }
   };
 
-  componentDidCatch = (error, errorInfo) => {
-    console.log(error, errorInfo);
+  handleIncrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = this.state.counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    this.setState({ counters });
   };
+
   render() {
     return (
       <div>
@@ -40,7 +45,9 @@ class Counters extends Component {
         </button>
         {this.state.counters.map((counter) => (
           <Counter
+            key={counter.id}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             value={counter.value}
             counter={counter}
           />
